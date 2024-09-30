@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>C__Project_Template.Service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="8.0.2" />
+    <PackageReference Include="GraphQL.SystemTextJson" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\C#-Project-Template.Core\C#-Project-Template.Core.csproj" />
+    <ProjectReference Include="..\C#-Project-Template.Data\C#-Project-Template.Data.csproj" />
+    <ProjectReference Include="..\C#-Project-Template.DTO\C#-Project-Template.DTO.csproj" />
+    <ProjectReference Include="..\C#-Project-Template.Mapper\C#-Project-Template.Mapper.csproj" />
+    <ProjectReference Include="..\C#-Project-Template.Repository\C#-Project-Template.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
