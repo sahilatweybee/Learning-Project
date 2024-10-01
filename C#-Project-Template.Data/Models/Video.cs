@@ -6,27 +6,34 @@ using Microsoft.EntityFrameworkCore;
 
 namespace C__Project_Template.Data.Models;
 
-public partial class Course
+public partial class Video
 {
     [Key]
+    [Column("id")]
     public int Id { get; set; }
 
-    [StringLength(50)]
+    [Column("title")]
+    [StringLength(100)]
     [Unicode(false)]
-    public string Name { get; set; } = null!;
+    public string Title { get; set; } = null!;
 
-    [StringLength(500)]
-    [Unicode(false)]
-    public string? Description { get; set; }
+    [Column("index")]
+    public int Index { get; set; }
 
+    [Column("link")]
     [StringLength(100)]
     [Unicode(false)]
     public string? Link { get; set; }
 
+    [Column("course_id")]
+    public int CourseId { get; set; }
+
+    [Column("image")]
     [StringLength(100)]
     [Unicode(false)]
     public string? Image { get; set; }
 
-    [InverseProperty("Course")]
-    public virtual ICollection<Video> Videos { get; set; } = new List<Video>();
+    [ForeignKey("CourseId")]
+    [InverseProperty("Videos")]
+    public virtual Course Course { get; set; } = null!;
 }
