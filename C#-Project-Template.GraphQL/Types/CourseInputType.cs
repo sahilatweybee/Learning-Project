@@ -14,7 +14,6 @@ namespace C__Project_Template.GraphQL.Types
         {
             Name = "CourseInputType";
 
-            Field<IdGraphType>(name: "Id").Description("Id of the Course").DefaultValue(0);
             Field<StringGraphType>(name: "Name").Description("Name of the Course").DefaultValue(string.Empty);
             Field<StringGraphType>(name: "Description").Description("Description of the Course").DefaultValue(null);
             Field<StringGraphType>(name: "Link").Description("Link Url of the Course").DefaultValue(null);

@@ -3,6 +3,7 @@ using C__Project_Template.GraphQL.Types;
 using C__Project_Template.Service;
 using GraphQL;
 using GraphQL.Types;
+using Microsoft.Identity.Client;
 
 namespace C__Project_Template.GraphQL.Mutations
 {
@@ -10,20 +11,60 @@ namespace C__Project_Template.GraphQL.Mutations
     {
         public CourseMutation(ICourseService service)
         {
-            Field<CourseType>(name: "AddUpdate").Description("Add a new Course")
-                                                .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<CourseInputType>>()
+            Field<CourseType>(name: "Add").Description("Add a new Course")
+                                          .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<CourseInputType>>()
+                                          {
+                                              Name = "dto",
+                                              Description = "Course object being added"
+                                          }))
+                                          .ResolveAsync(async context =>
+                                          {
+                                              var course = context.GetArgument<CourseDto>("dto");
+                                              course.Id = 0;
+                                              var result = await service.AddOrUpdateAsync(course);
+                                              return result;
+                                          });
+            
+            Field<CourseType>(name: "Update").Description("Add a new Course")
+                                             .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<CourseInputType>>()
                                                 {
-                                                    Name = "dto",
-                                                    Description = "Course object being added"
+                                                    Name = "Dto",
+                                                    Description = "Course object being updated"
+                                             },
+                                                new QueryArgument<NonNullGraphType<IdGraphType>>()
+                                                {
+                                                    Name = "Id",
+                                                    Description = "Id of the course being updated",
+                                                    DefaultValue = 0
                                                 }))
-                                                .ResolveAsync(async context =>
+                                             .ResolveAsync(async context =>
                                                 {
-                                                    var course = context.GetArgument<CourseDto>("dto");
+                                                    var id = context.GetArgument<int>("Id");
+                                                    if (id == 0)
+                                                        throw new Exception("Non null and non Zero Id is required");
 
+                                                    var course = context.GetArgument<CourseDto>("Dto");
+                                                    course.Id = id;
                                                     var result = await service.AddOrUpdateAsync(course);
-
                                                     return result;
                                                 });
+
+            Field<BooleanGraphType>(name: "Delete").Description("Add a new Course")
+                                                   .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>()
+                                             {
+                                                 Name = "Id",
+                                                 Description = "Id of the course being deleted",
+                                                 DefaultValue = 0
+                                             }))
+                                                   .ResolveAsync(async context =>
+                                             {
+                                                 var id = context.GetArgument<int>("Id");
+                                                 if (id == 0)
+                                                     throw new Exception("Non null and non Zero Id is required");
+
+                                                 var result = await service.DeleteCourseAsync(id);
+                                                 return result;
+                                             });
         }
     }
 }

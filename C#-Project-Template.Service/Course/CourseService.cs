@@ -77,5 +77,18 @@ namespace C__Project_Template.Service
                 Link = course.Link,
             });
         }
+
+        public async Task<bool> DeleteCourseAsync(int id)
+        {
+            Thread.Sleep(1000);
+            bool isSuccess = false;
+
+            var course = await _courserepository.FindByIdAsync(id) ?? throw new Exception($"No record found on Id {id}");
+
+            _courserepository.Delete(course);
+            isSuccess = await _courserepository.SaveChangesAsync() > 0;
+            
+            return await Task.FromResult(isSuccess);
+        }
     }
 }
