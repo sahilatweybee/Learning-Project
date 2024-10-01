@@ -27,12 +27,10 @@ namespace C__Project_Template.GraphQL
             services.AddScoped<CoursesQuery>();
         }
         
-        private static void AddSchemas(this IServiceCollection services)
         {
             services.AddScoped<CoursesSchema>();
         }
 
-        public static void UseGraphQL(this IApplicationBuilder app)
         {
             //app.UseGraphQL<CoursesSchema>("/graphql", opt =>
             //{
