@@ -1,4 +1,5 @@
-﻿using C__Project_Template.GraphQL.Queries;
+﻿using C__Project_Template.GraphQL.Mutations;
+using C__Project_Template.GraphQL.Queries;
 using C__Project_Template.GraphQL.Schemas;
 using GraphQL;
 using Microsoft.AspNetCore.Builder;
@@ -19,12 +20,18 @@ namespace C__Project_Template.GraphQL
             });
 
             services.AddQueries();
+            services.AddMutations();
             services.AddSchemas();
         } 
 
         private static void AddQueries(this IServiceCollection services)
         {
-            services.AddScoped<CoursesQuery>();
+            services.AddScoped<CourseQuery>();
+        }
+        
+        private static void AddMutations(this IServiceCollection services)
+        {
+            services.AddScoped<CourseMutation>();
         }
 
         private static void AddSchemas(this IServiceCollection services)
@@ -32,7 +39,7 @@ namespace C__Project_Template.GraphQL
             services.AddScoped<CoursesSchema>();
         }
         
-        private static void UseGraphQL(this IApplicationBuilder app)
+        public static void UseGraphQLAPIs(this IApplicationBuilder app)
         {
             //app.UseGraphQL<CoursesSchema>("/graphql", opt =>
             //{

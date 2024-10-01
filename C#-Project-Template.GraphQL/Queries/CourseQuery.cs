@@ -9,9 +9,9 @@ using System.ComponentModel;
 
 namespace C__Project_Template.GraphQL.Queries
 {
-    public class CoursesQuery : ObjectGraphType
+    public class CourseQuery : ObjectGraphType
     {
-        public CoursesQuery(ICourseService courseService)
+        public CourseQuery(ICourseService courseService)
         {
            Field<ListGraphType<CourseType>>(name: "courses").Description("Get All Courses")
                                                             .DefaultValue(null)

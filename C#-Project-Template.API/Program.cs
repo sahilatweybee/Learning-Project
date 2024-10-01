@@ -3,7 +3,6 @@ using C__Project_Template.Data;
 using C__Project_Template.GraphQL;
 using C__Project_Template.Repository;
 using C__Project_Template.Service;
-using GraphQL;
 using GraphQL.Server.Ui.GraphiQL;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -16,11 +15,6 @@ builder.Services.AddControllers(config =>
     config.Filters.Add<AuthorizationFilter>();
 });
 
-builder.Services.AddGraphQL(b =>
-{
-    //b.AddSchema<Schema>();
-    b.AddSystemTextJson();
-});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -46,8 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseGraphQLGraphiQL("/UI/GraphQL");
 
-
+app.UseGraphQLAPIs();
 
 app.UseAuthorization();
 

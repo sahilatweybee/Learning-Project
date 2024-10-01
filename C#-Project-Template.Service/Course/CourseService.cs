@@ -41,5 +41,41 @@ namespace C__Project_Template.Service
                 Link = x.Link   
             }).FirstOrDefaultAsync() ?? throw new Exception($"No record found on Id {id}");
         }
+        
+        public async Task<CourseDto> AddOrUpdateAsync(CourseDto dto)
+        {
+            Thread.Sleep(1000);
+
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto));
+
+            Course? course = null;
+            if(dto.Id != 0)
+                course = await _courserepository.FindByIdAsync(dto.Id);
+
+            if (course == null)
+                course = new Course();
+
+            course.Name = dto.Name;
+            course.Description = dto.Description;
+            course.Link = dto.Link;
+            course.Image = dto.Image;
+
+            if (dto.Id != 0) 
+                _courserepository.Update(course);
+            else 
+                _courserepository.Insert(course);
+
+            await _courserepository.SaveChangesAsync();
+
+            return await Task.FromResult(new CourseDto
+            {
+                Id = course.Id,
+                Name = dto.Name,
+                Description = course.Description,
+                Image = course.Image,
+                Link = course.Link,
+            });
+        }
     }
 }
