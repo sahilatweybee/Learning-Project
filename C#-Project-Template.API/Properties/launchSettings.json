@@ -32,7 +32,6 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "UI/GraphQL",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

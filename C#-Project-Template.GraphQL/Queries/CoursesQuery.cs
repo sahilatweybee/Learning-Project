@@ -13,13 +13,6 @@ namespace C__Project_Template.GraphQL.Queries
     {
         public CoursesQuery(ICourseService courseService)
         {
-            //AddField<ListGraphType<CourseType>>(
-            //    name: "courses",
-            //    description: "Get All Courses",
-            //    arguments: null,
-            //    resolve: context => courseService.GetAll().Result.ToList()!
-            //    );
-
            Field<ListGraphType<CourseType>>(name: "courses").Description("Get All Courses")
                                                             .DefaultValue(null)
                                                             .ResolveAsync(async context => await courseService.GetAllAsync());

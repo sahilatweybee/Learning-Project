@@ -20,19 +20,19 @@ namespace C__Project_Template.GraphQL
 
             services.AddQueries();
             services.AddSchemas();
-        }
+        } 
 
         private static void AddQueries(this IServiceCollection services)
         {
             services.AddScoped<CoursesQuery>();
         }
-        
+
         private static void AddSchemas(this IServiceCollection services)
         {
             services.AddScoped<CoursesSchema>();
         }
-
-        public static void UseGraphQL(this IApplicationBuilder app)
+        
+        private static void UseGraphQL(this IApplicationBuilder app)
         {
             //app.UseGraphQL<CoursesSchema>("/graphql", opt =>
             //{

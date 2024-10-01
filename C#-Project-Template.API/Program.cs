@@ -16,6 +16,11 @@ builder.Services.AddControllers(config =>
     config.Filters.Add<AuthorizationFilter>();
 });
 
+builder.Services.AddGraphQL(b =>
+{
+    //b.AddSchema<Schema>();
+    b.AddSystemTextJson();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,13 +47,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseGraphQLGraphiQL("/UI/GraphQL", new GraphiQLOptions()
-{
-    ExplorerExtensionEnabled = true,
-    HeaderEditorEnabled = true,
-});
 
-app.UseGraphQL();
 
 app.UseAuthorization();
 
