@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Learning_Project.API</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="8.0.2" />
+    <PackageReference Include="GraphQL.SystemTextJson" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Code\Middlewares\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Learning-Project.Core\Learning-Project.Core.csproj" />
+    <ProjectReference Include="..\Learning-Project.DTO\Learning-Project.DTO.csproj" />
+    <ProjectReference Include="..\Learning-Project.GraphQL\Learning-Project.GraphQL.csproj" />
+    <ProjectReference Include="..\Learning-Project.Mapper\Learning-Project.Mapper.csproj" />
+    <ProjectReference Include="..\Learning-Project.Repository\Learning-Project.Repository.csproj" />
+    <ProjectReference Include="..\Learning-Project.Service\Learning-Project.Service.csproj" />
+  </ItemGroup>
+
+</Project>

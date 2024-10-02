@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Learning_Project.DTO</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="8.0.2" />
+    <PackageReference Include="GraphQL.SystemTextJson" Version="8.1.0" />
+  </ItemGroup>
+
+</Project>

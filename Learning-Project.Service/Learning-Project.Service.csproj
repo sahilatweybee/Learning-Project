@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Learning_Project.Service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="8.0.2" />
+    <PackageReference Include="GraphQL.SystemTextJson" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Learning-Project.Core\Learning-Project.Core.csproj" />
+    <ProjectReference Include="..\Learning-Project.Data\Learning-Project.Data.csproj" />
+    <ProjectReference Include="..\Learning-Project.DTO\Learning-Project.DTO.csproj" />
+    <ProjectReference Include="..\Learning-Project.Mapper\Learning-Project.Mapper.csproj" />
+    <ProjectReference Include="..\Learning-Project.Repository\Learning-Project.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

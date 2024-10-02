@@ -1,6 +1,0 @@
-@C__Project_Template.API_HostAddress = http://localhost:5131
-
-GET {{C__Project_Template.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
