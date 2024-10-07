@@ -23,13 +23,13 @@ namespace Learning_Project.API.Controllers
         }
         
         [HttpPost()]
-        public async Task Post([ModelBinder(typeof(object))] object model)
+        public async Task Post(object model)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut("/{id}")]
-        public async Task Put([FromRoute] int id, [ModelBinder(typeof(object))] object model)
+        public async Task Put([FromRoute] int id, object model)
         {
             throw new NotImplementedException();
         }

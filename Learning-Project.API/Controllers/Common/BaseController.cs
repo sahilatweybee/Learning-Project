@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Learning_Project.API.Controllers
 {
-    [NonController]
     public class BaseController : ControllerBase
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
