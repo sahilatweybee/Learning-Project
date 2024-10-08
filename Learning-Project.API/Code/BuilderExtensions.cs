@@ -11,6 +11,7 @@ namespace Learning_Project.API
             app.UseGraphQLGraphiQL("/UI/GraphQL");
             app.UseGraphQLAPIs();
 
+            app.UseWebSockets();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseAuthorization();
         }

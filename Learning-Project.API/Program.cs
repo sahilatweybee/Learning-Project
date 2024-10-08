@@ -13,6 +13,9 @@ app.ConfigureSwagger(app.Environment);
 app.ConfigureBuilder();
 
 app.MapControllers();
-app.MapHub<ChatHub>("/Chat");
+app.MapHub<ChatHub>("/Chat", opt =>
+{
+    opt.Transports = Microsoft.AspNetCore.Http.Connections.HttpTransportType.WebSockets;
+});
 
 app.Run();

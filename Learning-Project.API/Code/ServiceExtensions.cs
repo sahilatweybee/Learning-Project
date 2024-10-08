@@ -14,7 +14,7 @@ namespace Learning_Project.API
         {
             services.AddControllers(config =>
             {
-                config.Filters.Add<AuthorizationFilter>();
+                //config.Filters.Add<AuthorizationFilter>();
             });
 
             services.AddCors();
@@ -72,7 +72,10 @@ namespace Learning_Project.API
 
         private static void AddSignalRServices(this IServiceCollection services)
         {
-            services.AddSignalR();
+            services.AddSignalR(opt =>
+            {
+                opt.EnableDetailedErrors = true;
+            });
         }
     }
 }

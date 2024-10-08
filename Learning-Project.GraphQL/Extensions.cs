@@ -41,11 +41,6 @@ namespace Learning_Project.GraphQL
         
         public static void UseGraphQLAPIs(this IApplicationBuilder app)
         {
-            //app.UseGraphQL<CoursesSchema>("/graphql", opt =>
-            //{
-            //    opt.
-            //});
-            
             app.UseGraphQL<CoursesSchema>();
         }
     }
