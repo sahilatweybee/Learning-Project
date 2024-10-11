@@ -2,21 +2,20 @@
 using Learning_Project.Data.Models;
 using Learning_Project.DTO;
 using Learning_Project.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace Learning_Project.Service
 {
     public class CourseService : ICourseService
     {
-
         private IRepository<AppDbContext, Course> _courserepository;
+        private bool _disposed;
 
         public CourseService(IRepository<AppDbContext, Course> courserepository)
         {
             _courserepository = courserepository;
         }
 
-        public async Task<List<CourseDto>> GetAllAsync()
+        public async Task<List<CourseDto>?> GetAllAsync()
         {
             Thread.Sleep(1000);
             return await _courserepository.Query().Get().Include(x => x.Videos).Select(x => new CourseDto()
@@ -98,6 +97,25 @@ namespace Learning_Project.Service
             isSuccess = await _courserepository.SaveChangesAsync() > 0;
             
             return await Task.FromResult(isSuccess);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _courserepository?.Dispose();
+                }
+
+                _disposed = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

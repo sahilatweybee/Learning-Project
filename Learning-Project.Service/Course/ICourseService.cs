@@ -3,11 +3,11 @@ using Learning_Project.DTO;
 
 namespace Learning_Project.Service
 {
-    public interface ICourseService
+    public interface ICourseService : IDisposable
     {
         Task<CourseDto> AddOrUpdateAsync(CourseDto dto);
         Task<bool> DeleteCourseAsync(int id);
-        Task<List<CourseDto>> GetAllAsync();
+        Task<List<CourseDto>?> GetAllAsync();
         Task<CourseDto> GetByIdAsync(int id);
     }
 }
