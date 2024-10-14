@@ -2,14 +2,11 @@
 import React from "react";
 import MessageBubble from "./MessageBubble";
 import MessageInput from "./MessageInput";
-import { ChatMessage } from "@/types";
+import { useChatSelector } from "../hooks";
 
-interface ChatWindowProps {
-  messages: ChatMessage[];
-  onSendMessage: (message: string) => void;
-}
+const ChatWindow: React.FC = () => {
+  const messages = useChatSelector((state) => state.chat.messages);
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onSendMessage }) => {
   return (
     <div className='flex flex-col h-full'>
       <div className='flex-grow overflow-y-auto p-4 bg-gray-50'>
@@ -17,7 +14,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onSendMessage }) => {
           <MessageBubble key={index} message={message} />
         ))}
       </div>
-      <MessageInput onSendMessage={onSendMessage} />
+      <MessageInput />
     </div>
   );
 };

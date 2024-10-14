@@ -1,18 +1,20 @@
-// src/components/MessageInput.tsx
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
+import { useChatDispatch, useChatSelector } from "../hooks";
+import { sendMessages } from "../redux/slice/chatSlice";
 
-interface MessageInputProps {
-  onSendMessage: (message: string) => void;
-}
-
-const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
+const MessageInput: React.FC = () => {
   const [message, setMessage] = useState<string>("");
 
+  const dispatch = useChatDispatch();
+  const currentUser = useChatSelector((state) => state.chat.userName);
   const handleSendMessage = () => {
     if (message.trim()) {
-      onSendMessage(message);
+      dispatch(
+        sendMessages({ sender: currentUser, isMine: true, text: message })
+      );
+      // onSendMessage(message);
       setMessage("");
     }
   };

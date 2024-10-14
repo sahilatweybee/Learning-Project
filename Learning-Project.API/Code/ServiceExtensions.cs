@@ -4,6 +4,7 @@ using Learning_Project.GraphQL;
 using Learning_Project.Repository;
 using Learning_Project.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.OpenApi.Models;
 
 namespace Learning_Project.API
@@ -17,7 +18,16 @@ namespace Learning_Project.API
                 //config.Filters.Add<AuthorizationFilter>();
             });
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    builder
+                    .AllowAnyOrigin()
+                     .AllowAnyMethod()
+                     .AllowAnyHeader()
+                     .WithExposedHeaders("Content-Disposition"));
+            });
 
             services.AddEndpointsApiExplorer();
             services.ConfigureSwagger();

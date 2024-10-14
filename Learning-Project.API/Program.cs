@@ -9,13 +9,10 @@ builder.Services.AddDependencies(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.ConfigureSwagger(app.Environment);
 app.ConfigureBuilder();
+app.ConfigureSwagger(app.Environment);
 
 app.MapControllers();
-app.MapHub<ChatHub>("/Chat", opt =>
-{
-    opt.Transports = Microsoft.AspNetCore.Http.Connections.HttpTransportType.WebSockets;
-});
+app.MapHub<ChatHub>("/Chat");
 
 app.Run();

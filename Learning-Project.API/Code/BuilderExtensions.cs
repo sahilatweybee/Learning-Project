@@ -7,13 +7,13 @@ namespace Learning_Project.API
     {
         public static void ConfigureBuilder(this IApplicationBuilder app)
         {
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseGraphQLGraphiQL("/UI/GraphQL");
             app.UseGraphQLAPIs();
 
-            app.UseWebSockets();
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-            app.UseAuthorization();
+            //app.UseWebSockets();
+            //app.UseAuthorization();
         }
 
         public static void ConfigureSwagger(this IApplicationBuilder app, IWebHostEnvironment env)

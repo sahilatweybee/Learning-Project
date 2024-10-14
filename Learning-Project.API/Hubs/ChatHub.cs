@@ -5,6 +5,7 @@ namespace Learning_Project.API
 {
     public class ChatHub : Hub
     {
+        [HubMethodName("NotifyAsync")]
         public async Task NotifyAsync(string userName, string messageText)
         {
             var message = new ChatMessage()
@@ -18,6 +19,12 @@ namespace Learning_Project.API
                                         message.UserName, 
                                         message.Content, 
                                         message.TimeStamp);
+        }
+
+        public override Task OnConnectedAsync()
+        {
+            Clients.All.SendAsync(HttpMethods.Connect, "Connection is successful");
+            return base.OnConnectedAsync();
         }
     }
 }
