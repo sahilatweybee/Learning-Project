@@ -20,11 +20,5 @@ namespace Learning_Project.API
                                         message.Content, 
                                         message.TimeStamp);
         }
-
-        public override Task OnConnectedAsync()
-        {
-            Clients.All.SendAsync(HttpMethods.Connect, "Connection is successful");
-            return base.OnConnectedAsync();
-        }
     }
 }
