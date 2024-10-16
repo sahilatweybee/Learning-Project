@@ -1,6 +1,6 @@
 import { ChatMessage } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { send, start } from "../../chatApi";
+
 interface ChatState {
   messages: ChatMessage[];
   userName: string;
@@ -18,19 +18,11 @@ const chatSlice = createSlice({
   name: "chat",
   initialState: initialState,
   reducers: {
-    sendMessages(state, action: PayloadAction<ChatMessage>) {
-      start()
-        .then(() => {
-          send(action.payload);
-        })
-        .catch((e) => console.log(e));
-      state.messages = [...state.messages, action.payload]; //state.messages[0]];
-    },
-    setMessage(state, action: PayloadAction<ChatMessage>) {
+    setNewMessage: (state, action: PayloadAction<ChatMessage>) => {
       state.messages = [...state.messages, action.payload];
     },
   },
 });
 
-export const { sendMessages, setMessage } = chatSlice.actions;
+export const { setNewMessage } = chatSlice.actions;
 export default chatSlice.reducer;

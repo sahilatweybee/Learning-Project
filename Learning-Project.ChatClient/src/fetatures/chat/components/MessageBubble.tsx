@@ -12,13 +12,18 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
 
   return (
     <div className={`flex ${isMine ? "justify-end" : "justify-start"} mb-4`}>
-      {!isMine && <Avatar key={sender} className='mr-2' />}
+      {!isMine && (
+        <Avatar
+          key={sender}
+          className="mr-2"
+        />
+      )}
       <div
         className={`p-3 rounded-lg max-w-xs ${
           isMine ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
         }`}
       >
-        <span className='text-sm font-semibold'>{sender}</span>
+        <span className="text-sm font-semibold">{sender}</span>
         <p>{text}</p>
       </div>
     </div>
