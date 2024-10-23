@@ -4,7 +4,6 @@ using Learning_Project.GraphQL.Schemas;
 using GraphQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Protocols;
 using Lifetime = GraphQL.DI.ServiceLifetime;
 
 namespace Learning_Project.GraphQL
@@ -22,13 +21,13 @@ namespace Learning_Project.GraphQL
             services.AddQueries();
             services.AddMutations();
             services.AddSchemas();
-        } 
+        }
 
         private static void AddQueries(this IServiceCollection services)
         {
             services.AddScoped<CourseQuery>();
         }
-        
+
         private static void AddMutations(this IServiceCollection services)
         {
             services.AddScoped<CourseMutation>();
@@ -38,7 +37,7 @@ namespace Learning_Project.GraphQL
         {
             services.AddScoped<CoursesSchema>();
         }
-        
+
         public static void UseGraphQLAPIs(this IApplicationBuilder app)
         {
             app.UseGraphQL<CoursesSchema>();

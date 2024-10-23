@@ -1,7 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-
-namespace Learning_Project.Repository
+﻿namespace Learning_Project.Repository
 {
     public interface IRepository<TContext, TEntity> : IDisposable
         where TEntity : class

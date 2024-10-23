@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Learning_Project.Data.Models;
+﻿using Learning_Project.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Learning_Project.Data.Contexts;

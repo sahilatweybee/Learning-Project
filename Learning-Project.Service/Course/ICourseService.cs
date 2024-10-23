@@ -1,5 +1,4 @@
-﻿using Learning_Project.Data.Models;
-using Learning_Project.DTO;
+﻿using Learning_Project.DTO;
 
 namespace Learning_Project.Service
 {

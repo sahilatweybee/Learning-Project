@@ -3,7 +3,6 @@ using Learning_Project.GraphQL.Types;
 using Learning_Project.Service;
 using GraphQL;
 using GraphQL.Types;
-using Microsoft.Identity.Client;
 
 namespace Learning_Project.GraphQL.Mutations
 {
@@ -24,12 +23,12 @@ namespace Learning_Project.GraphQL.Mutations
                                               var result = await service.AddOrUpdateAsync(course);
                                               return result;
                                           });
-            
+
             Field<CourseType>(name: "Update").Description("Add a new Course")
                                              .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<CourseInputType>>()
-                                                {
-                                                    Name = "Dto",
-                                                    Description = "Course object being updated"
+                                             {
+                                                 Name = "Dto",
+                                                 Description = "Course object being updated"
                                              },
                                                 new QueryArgument<NonNullGraphType<IdGraphType>>()
                                                 {
@@ -51,11 +50,11 @@ namespace Learning_Project.GraphQL.Mutations
 
             Field<BooleanGraphType>(name: "Delete").Description("Add a new Course")
                                                    .Arguments(new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>()
-                                             {
-                                                 Name = "Id",
-                                                 Description = "Id of the course being deleted",
-                                                 DefaultValue = 0
-                                             }))
+                                                   {
+                                                       Name = "Id",
+                                                       Description = "Id of the course being deleted",
+                                                       DefaultValue = 0
+                                                   }))
                                                    .ResolveAsync(async context =>
                                              {
                                                  var id = context.GetArgument<int>("Id");

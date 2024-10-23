@@ -1,11 +1,6 @@
 ﻿using Learning_Project.Core;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Learning_Project.Repository
 {
@@ -60,7 +55,7 @@ namespace Learning_Project.Repository
             if (filter != null)
                 result = result.Where(filter);
 
-            if(sortExpression != null)
+            if (sortExpression != null)
                 if (SortByDesc)
                     result.OrderByDescending(sortExpression);
                 else

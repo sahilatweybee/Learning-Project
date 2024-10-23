@@ -1,10 +1,8 @@
-﻿using Learning_Project.API.Filters;
-using Learning_Project.Data;
+﻿using Learning_Project.Data;
 using Learning_Project.GraphQL;
 using Learning_Project.Repository;
 using Learning_Project.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.OpenApi.Models;
 
 namespace Learning_Project.API

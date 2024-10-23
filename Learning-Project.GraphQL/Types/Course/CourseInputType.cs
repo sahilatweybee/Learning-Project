@@ -1,10 +1,4 @@
-﻿using Learning_Project.DTO;
-using GraphQL.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GraphQL.Types;
 
 namespace Learning_Project.GraphQL.Types
 {
