@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning-Project.GraphQL", 
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "learning-project.chatclient", "Learning-Project.ChatClient\learning-project.chatclient.esproj", "{30BA27A4-E6CA-4F4C-9FD5-528EFA6032A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning-Project.Redis", "Learning-Project.Redis\Learning-Project.Redis.csproj", "{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning-Project.Redis", "Learning-Project.Redis\Learning-Project.Redis.csproj", "{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning-Project.gRPC", "Learning-Project.gRPC\Learning-Project.gRPC.csproj", "{EEB3BA75-0B21-4662-B672-0C0219025632}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB3BA75-0B21-4662-B672-0C0219025632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB3BA75-0B21-4662-B672-0C0219025632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB3BA75-0B21-4662-B672-0C0219025632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB3BA75-0B21-4662-B672-0C0219025632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
