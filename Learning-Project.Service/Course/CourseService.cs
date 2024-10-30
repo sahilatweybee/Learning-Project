@@ -18,7 +18,7 @@ namespace Learning_Project.Service
         public async Task<List<CourseDto>?> GetAllAsync()
         {
             Thread.Sleep(1000);
-            return await _courserepository.Query().Get().Include(x => x.Videos).Select(x => new CourseDto()
+            return await _courserepository.Query().Get().IncludeEntity(x => x.Videos).Select(x => new CourseDto()
             {
                 Id = x.Id,
                 Name = x.Name,

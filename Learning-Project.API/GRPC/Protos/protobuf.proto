@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Learning_Project.API.GRPC";
+
+package hello;
+
+service HelloGRPC{
+	rpc Greet (GreetRequest) returns (GreetResponse);
+}
+
+message GreetRequest{
+	string Name = 1;
+	// integer age = 2;
+}
+
+message GreetResponse{
+	string Content = 1;
+}

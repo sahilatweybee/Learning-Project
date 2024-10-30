@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Learning_Project.Repository
@@ -20,7 +21,8 @@ namespace Learning_Project.Repository
             return await queryable.FirstAsync(filter);
         }
 
-        public static IIncludableQueryable<TEntity, TProperty> Include<TEntity, TProperty>(this IQueryable<TEntity> queryable, Expression<Func<TEntity, TProperty>> property)
+        public static IIncludableQueryable<TEntity, TProperty> IncludeEntity<TEntity, TProperty>(this IQueryable<TEntity> queryable, Expression<Func<TEntity, TProperty>> property)
+            where TEntity : class
         {
             return queryable.Include(property); 
         }
