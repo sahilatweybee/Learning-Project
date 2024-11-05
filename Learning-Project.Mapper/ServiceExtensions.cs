@@ -9,4 +9,6 @@ namespace Learning_Project.Mapper
 
         }
     }
+
+    //public class asdf : MapsterMapper.Mapper
 }
