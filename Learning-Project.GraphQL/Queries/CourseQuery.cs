@@ -2,6 +2,7 @@
 using Learning_Project.Service;
 using GraphQL;
 using GraphQL.Types;
+using Learning_Project.DTO;
 
 namespace Learning_Project.GraphQL.Queries
 {
@@ -11,7 +12,19 @@ namespace Learning_Project.GraphQL.Queries
         {
             Field<ListGraphType<CourseType>>(name: "courses").Description("Get All Courses")
                                                              .DefaultValue(null)
-                                                             .ResolveAsync(async context => await courseService.GetAllAsync());
+                                                             .ResolveAsync(async context => 
+                                                             {
+                                                                 List<CourseDto>? retVal = new List<CourseDto>();
+                                                                 try
+                                                                 {
+                                                                     retVal = await courseService.GetAllAsync();
+                                                                 }
+                                                                 catch (Exception)
+                                                                 {
+                                                                     throw;
+                                                                 }
+                                                                 return retVal;
+                                                             });
 
 
             Field<CourseType>(name: "course").Description("Get Course by id")

@@ -23,6 +23,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "learning-project.chatclient
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning-Project.Redis", "Learning-Project.Redis\Learning-Project.Redis.csproj", "{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning-Project.HangFire", "Learning-Project.HangFire\Learning-Project.HangFire.csproj", "{DE5AEAE6-8E3F-4417-A2F9-7450D2F15F0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2E22757-C459-4BC7-A8C5-CAEAFA9FAC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5AEAE6-8E3F-4417-A2F9-7450D2F15F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5AEAE6-8E3F-4417-A2F9-7450D2F15F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5AEAE6-8E3F-4417-A2F9-7450D2F15F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5AEAE6-8E3F-4417-A2F9-7450D2F15F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

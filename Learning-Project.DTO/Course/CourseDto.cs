@@ -11,8 +11,8 @@
         public string? Link { get; set; }
 
         public string? Image { get; set; }
-        public List<VideoDto>? Videos { get; set; } = new List<VideoDto>();
-        public int VideosCount { get => Videos?.Count ?? 0; }
+        public IEnumerable<VideoDto>? Videos { get; set; } = new List<VideoDto>();
+        public int VideosCount { get => Videos?.Count() ?? 0; }
     }
 
 }

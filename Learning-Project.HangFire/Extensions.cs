@@ -1,4 +1,4 @@
-﻿namespace Learning_Project.Core
+﻿namespace Learning_Project.HangFire
 {
     public static partial class Extensions
     {

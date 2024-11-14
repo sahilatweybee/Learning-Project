@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Learning_Project.Redis
 {
-    public static class ServiceExtensions
+    public static partial class Extensions
     {
         public static void AddRedis(this IServiceCollection services, IConfiguration configuration)
         {

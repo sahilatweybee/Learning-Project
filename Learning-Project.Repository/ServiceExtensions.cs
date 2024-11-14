@@ -2,7 +2,7 @@
 
 namespace Learning_Project.Repository
 {
-    public static class ServiceExtensions
+    public static partial class Extensions
     {
         public static void AddRepositories(this IServiceCollection services)
         {

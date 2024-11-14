@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Learning_Project.Data
 {
-    public static class ServiceExtensions
+    public static partial class Extensions
     {
         public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {

@@ -2,7 +2,7 @@
 
 namespace Learning_Project.Service
 {
-    public static class ServiceExtensions
+    public static partial class Extensions
     {
         public static void AddServices(this IServiceCollection services)
         {

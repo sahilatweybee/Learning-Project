@@ -33,7 +33,7 @@ namespace Learning_Project.Service
                     Link = vid.Link,
                     Image = vid.Image,
                     CourseId = vid.CourseId,
-                }).ToList()
+                })
             }).ToListAsync();
         }
         
